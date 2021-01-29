@@ -4,5 +4,5 @@ resource "aws_key_pair" "deployer" {
 }
 
 provider "aws" {
-    Region= "us-east-2a"
+    region= "us-east-2a"
 }
