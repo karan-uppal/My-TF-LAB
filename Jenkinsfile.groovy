@@ -1,9 +1,11 @@
 pipeline{
     
     agent any
-    tools{
-    tool name: 'terraform-14', type: 'terraform'
-    }
+    
+    tools {
+  terraform 'terraform-14'
+}
+    
     stages{
         stage('git checkout'){
            steps{ 
@@ -17,6 +19,10 @@ pipeline{
         stage('terraform apply'){
             steps{
                 sh 'terraform apply --auto-approve'
+            }}
+            stage('terraform destroy'){
+            steps{
+                sh 'terraform destroy --auto-approve'
             }
             
         }
